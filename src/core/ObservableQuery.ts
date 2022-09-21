@@ -307,6 +307,12 @@ export class ObservableQuery<
     return !this.last || !equal(this.last.result, newResult);
   }
 
+  // Compares variables to the variables in the snapshot we took of
+  // this.lastResult when it was first received.
+  public hasDifferentVariablesFromLastResult(variables?: TVariables) {
+    return !this.last || !equal(this.last.variables, variables)
+  }
+
   private getLast<K extends keyof Last<TData, TVariables>>(
     key: K,
     variablesMustMatch?: boolean,
@@ -872,7 +878,9 @@ Did you mean to call refetch(variables) instead of refetch({ variables })?`);
     variables: TVariables | undefined,
   ) {
     const lastError = this.getLastError();
-    if (lastError || this.isDifferentFromLastResult(result)) {
+    if (lastError
+      || this.isDifferentFromLastResult(result)
+      || this.hasDifferentVariablesFromLastResult(variables)) {
       if (lastError || !result.partial || this.options.returnPartialData) {
         this.updateLastResult(result, variables);
       }
