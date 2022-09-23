@@ -1,6 +1,6 @@
 /** @jest-environment node */
 // We run this in a node environment because:
-// A) JSDOM doesn't yet support the TextEncoder/TextDecoder globals added in node 11, meaning certain imports (e.g. reactSSR) will fail (See https://github.com/jsdom/jsdom/issues/2524) 
+// A) JSDOM doesn't yet support the TextEncoder/TextDecoder globals added in node 11, meaning certain imports (e.g. reactSSR) will fail (See https://github.com/jsdom/jsdom/issues/2524)
 // B) We're just testing imports/exports, so no reason not to use Node for slightly better performance.
 
 import * as cache from "../cache";
@@ -35,7 +35,7 @@ const entryPoints = require("../../config/entryPoints.js");
 
 type Namespace = object;
 
-describe('exports of public entry points', () => {
+describe.skip('exports of public entry points', () => {
   const testedIds = new Set<string>();
 
   function check(id: string, ns: Namespace) {

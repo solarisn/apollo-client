@@ -2,7 +2,7 @@ import { DataProxy } from './DataProxy';
 import { Modifier, Modifiers } from './common';
 import { ApolloCache } from '../cache';
 
-export namespace Cache {
+export declare namespace Cache {
   export type WatchCallback<TData = any> = (
     diff: Cache.DiffResult<TData>,
     lastDiff?: Cache.DiffResult<TData>,

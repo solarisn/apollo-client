@@ -3,7 +3,7 @@ import { TypedDocumentNode } from '@graphql-typed-document-node/core';
 
 import { MissingFieldError } from './common';
 
-export namespace DataProxy {
+export declare namespace DataProxy {
   export interface Query<TVariables, TData> {
     /**
      * The GraphQL query shape to be used constructed using the `gql` template

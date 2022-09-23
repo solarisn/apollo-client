@@ -12,7 +12,7 @@ export interface ErrorResponse {
   forward: NextLink;
 }
 
-export namespace ErrorLink {
+export declare namespace ErrorLink {
   /**
    * Callback to be triggered when an error occurs within the link stack.
    */
@@ -22,9 +22,9 @@ export namespace ErrorLink {
 }
 
 // For backwards compatibility.
-export import ErrorHandler = ErrorLink.ErrorHandler;
+// export import ErrorHandler = ErrorLink.ErrorHandler;
 
-export function onError(errorHandler: ErrorHandler): ApolloLink {
+export function onError(errorHandler: ErrorLink.ErrorHandler): ApolloLink {
   return new ApolloLink((operation, forward) => {
     return new Observable(observer => {
       let sub: any;

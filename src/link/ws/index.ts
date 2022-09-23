@@ -3,7 +3,7 @@ import { SubscriptionClient, ClientOptions } from 'subscriptions-transport-ws';
 import { ApolloLink, Operation, FetchResult } from '../core';
 import { Observable } from '../../utilities';
 
-export namespace WebSocketLink {
+export declare namespace WebSocketLink {
   /**
    * Configuration to use when constructing the subscription client (subscriptions-transport-ws).
    */
@@ -26,7 +26,7 @@ export namespace WebSocketLink {
 }
 
 // For backwards compatibility.
-export import WebSocketParams = WebSocketLink.Configuration;
+// export import WebSocketParams = WebSocketLink.Configuration;
 
 export class WebSocketLink extends ApolloLink {
   private subscriptionClient: SubscriptionClient;

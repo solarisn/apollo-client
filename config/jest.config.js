@@ -1,10 +1,12 @@
 const defaults = {
   rootDir: "src",
-  preset: "ts-jest",
   testEnvironment: "jsdom",
   setupFiles: ["<rootDir>/config/jest/setup.ts"],
   testEnvironmentOptions: {
     url: "http://localhost",
+  },
+  transform: {
+    ".*.(ts|tsx|js|jsx)?$": ["@swc/jest"],
   },
   snapshotFormat: {
     escapeString: true,
