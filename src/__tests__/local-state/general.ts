@@ -830,7 +830,7 @@ describe('Combining client and server state/operations', () => {
     }, 10);
   });
 
-  itAsync('query resolves with loading: false if subsequent responses contain the same data', (resolve, reject) => {
+  itAsync.only('query resolves with loading: false if subsequent responses contain the same data', (resolve, reject) => {
     const request = {
       query: gql`
         query people($id: Int) {
@@ -923,7 +923,7 @@ describe('Combining client and server state/operations', () => {
       observer.refetch({
         id: 2
       });
-    }, 1000);
+    }, 1);
   });
 
   itAsync('should correctly propagate an error from a client resolver', async (resolve, reject) => {
